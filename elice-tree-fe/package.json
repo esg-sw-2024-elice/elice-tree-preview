@@ -26,7 +26,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
     "format": "prettier . --write",
-    "postinstall": "cd .. && husky install .husky"
+    "postinstall": "cd .. && husky install elice-tree-fe/.husky"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
