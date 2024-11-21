@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginButton from 'components/userlogin/Loginbutton';
-import IdInput from 'components/userlogin/Idinput';
-import PwInput from 'components/userlogin/Pwinput';
+import IdInput from 'components/userlogin/IdInput';
+import PwInput from 'components/userlogin/PwInput';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
