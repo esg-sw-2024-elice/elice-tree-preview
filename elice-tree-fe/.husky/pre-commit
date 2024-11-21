@@ -1,0 +1,2 @@
+cd elice-tree-fe
+yarn lint-staged

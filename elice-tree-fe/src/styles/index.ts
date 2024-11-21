@@ -1,4 +1,3 @@
-import { PALETTE } from "./colors";
-
+import { PALETTE } from './colors';
 
 export { PALETTE };
