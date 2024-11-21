@@ -1,4 +1,4 @@
-import * as Styled from 'styles/components/todolist/Todolistbutton'
+import * as Styled from 'styles/components/todolist/Todolistbutton';
 
 interface TodoListButtonProps {
   content: string;
