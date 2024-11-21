@@ -10,7 +10,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const handleLogin = () => {
     if (id && pw) {
-      alert(`${id}님 오늘도 탄소배출을 줄여봐요`);
+      alert(`${id}님 오늘도 탄소배출을 줄여봐요!`);
       navigate('/TodoList');
     } else {
       alert('ID와 비밀번호를 입력하세요');
