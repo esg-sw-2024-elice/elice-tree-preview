@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import LoginButton from 'components/userlogin/Loginbutton';
-import Idinput from 'components/userlogin/Idinput';
+import IdInput from 'components/userlogin/Idinput';
 import PwInput from 'components/userlogin/Pwinput';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ export default function LoginPage() {
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>로그인 페이지</h1>
-      <Idinput id={id} setId={setId} />
+      <IdInput id={id} setId={setId} />
       <PwInput pw={pw} setPw={setPw} />
       <LoginButton label="로그인" onClick={handleLogin} />
     </div>
