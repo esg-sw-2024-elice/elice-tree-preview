@@ -25,6 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
+    "format": "prettier . --write",
     "postinstall": "cd .. && husky install .husky"
   },
   "lint-staged": {
