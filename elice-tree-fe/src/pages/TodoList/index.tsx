@@ -7,7 +7,6 @@ import { todo } from './data';
 import TodoListInput from 'components/todolist/Todolistinput';
 import TodoListItems from 'components/todolist/Todolistitems';
 
-
 export default function TodoListPage() {
   const [todoList, setTodoList] = useState<Todo[]>(todo);
   const [todoContent, setTodoContent] = useState<string>('');
@@ -18,8 +17,10 @@ export default function TodoListPage() {
       content: todoContent,
       completed: false,
     };
-    setTodoList([...todoList, newTodos]);
-    setTodoContent('');
+    if (newTodos.content) {
+      setTodoList([...todoList, newTodos]);
+      setTodoContent('');
+    }
   }
 
   // todo complete check
@@ -34,10 +35,7 @@ export default function TodoListPage() {
   return (
     <>
       <main>todolist</main>
-      <TodoListItems
-        todos={todoList}
-        CompletedTodo={handleCompleteTodo}
-      />
+      <TodoListItems todos={todoList} CompletedTodo={handleCompleteTodo} />
       <TodoListInput
         todoContent={todoContent}
         setTodoContent={setTodoContent}
