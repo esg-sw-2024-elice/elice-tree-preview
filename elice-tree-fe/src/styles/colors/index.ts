@@ -1,14 +1,18 @@
 export const PALETTE = {
-  SUB_BLUE: '#E5EDF5',
   MAIN_BLACK: '#1A1A1A',
+  MAIN_GREEN: '#3F7541',
+  MAIN_PURPLE: '##8D44F2',
   LIGHT_BLACK: '#BABABA',
-  LIGHT_RED: '#FFE8E4',
+  LIGHT_GREEN: '#DFECE0',
+  // LIGHT_RED: '#FFE8E4',
 } as {
   [key: string]: string;
-  SUB_BLUE: '#E5EDF5';
-  MAIN_BLACK: '#1A1A1A';
-  LIGHT_BLACK: '#BABABA';
-  LIGHT_RED: '#FFE8E4';
+  MAIN_BLACK: '#1A1A1A',
+  MAIN_GREEN: '#3F7541',
+  MAIN_PURPLE: '##8D44F2',
+  LIGHT_BLACK: '#BABABA',
+  LIGHT_GREEN: '#DFECE0',
+  // LIGHT_RED: '#FFE8E4',
 };
 
 type PaletteType = typeof PALETTE;
