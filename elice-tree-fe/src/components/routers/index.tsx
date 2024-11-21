@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { TodoList } from 'pages';
-import LoginPage from 'pages/UserLogin/index';
+import LoginPage from 'pages/UserLogin';
 
 export default function Router() {
   return (
