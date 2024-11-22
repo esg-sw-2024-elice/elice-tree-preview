@@ -3,10 +3,10 @@ name: Build Project
 on:
   push:
     branches:
-      - master
+      - master, develop-fe
   pull_request:
     branches:
-      - master
+      - master, develop-fe
 
 jobs:
   build:
