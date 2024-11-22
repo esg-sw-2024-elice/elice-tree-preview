@@ -1,4 +1,5 @@
-import TodoListButton from './Todolistbutton';
+import React from 'react';
+import TodoListButton from './todolistbutton/Todolistbutton';
 
 interface TodoInputProps {
   todoContent: string;
@@ -15,7 +16,7 @@ export default function TodoListInput({
     <>
       <p>제목</p>
       <input type="text" value={todoContent} onChange={(e) => setTodoContent(e.target.value)} />
-      <TodoListButton content="만들기" onClick={handleAddTodo} />
+      {/* <TodoListButton onClick={handleAddTodo}>만들기</TodoListButton> */}
     </>
   );
 }

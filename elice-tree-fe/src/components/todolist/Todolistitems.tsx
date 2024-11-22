@@ -1,6 +1,6 @@
 import React from 'react';
 import { Todo } from 'types';
-import TodoListButton from './Todolistbutton';
+import TodoListButton from './todolistbutton/Todolistbutton';
 
 interface TodoListItemsProps {
   todos: Todo[];
@@ -16,9 +16,9 @@ export default function TodoListItems({ todos, CompletedTodo }: TodoListItemsPro
             <li>
               <span>#{index + 1} </span>
               <span>{todo.content} </span>
-              <div>
-                <TodoListButton content="완료" onClick={() => CompletedTodo(index)} />
-              </div>
+              {/* <div>
+                <TodoListButton onClick={() => CompletedTodo(index)}>완료</TodoListButton>
+              </div> */}
             </li>
           </ul>
         );

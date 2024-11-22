@@ -24,5 +24,3 @@ export default function BaseButton(props: BaseButtonProps) {
     </S.ButtonWrapper>
   );
 }
-
-BaseButton.Styled = S.ButtonWrapper;
