@@ -16,7 +16,9 @@ export default function TodoListItems({ todos, CompletedTodo }: TodoListItemsPro
             <li>
               <span>#{index + 1} </span>
               <span>{todo.content} </span>
-              <TodoListButton content="완료" onClick={() => CompletedTodo(index)} />
+              <div>
+                <TodoListButton content="완료" onClick={() => CompletedTodo(index)} />
+              </div>
             </li>
           </ul>
         );

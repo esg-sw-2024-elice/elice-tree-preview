@@ -1,4 +1,4 @@
-import * as Styled from 'styles/components/todolist/Todolistbutton';
+import * as Styled from 'components/todolist/Todolistbutton_style';
 
 interface TodoListButtonProps {
   content: string;
@@ -7,7 +7,7 @@ interface TodoListButtonProps {
 
 export default function TodoListButton({ content, onClick }: TodoListButtonProps) {
   return (
-    <Styled.Button content={content} onClick={onClick}>
+    <Styled.Button type="button" content={content} onClick={onClick}>
       {content}
     </Styled.Button>
   );
