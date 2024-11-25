@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoListButton from './todolistbutton/Todolistbutton';
+import { TodoListButton } from 'components';
 
 interface TodoInputProps {
   todoContent: string;
