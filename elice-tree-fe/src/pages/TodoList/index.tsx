@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 
 import { Todo } from 'types';
-
 import { todo } from './data';
-
-import TodoListInput from 'components/todolist/Todolistinput';
-import TodoListItems from 'components/todolist/Todolistitems';
+import { TodoListInput, TodoListItems } from 'components';
 
 export default function TodoListPage() {
   const [todoList, setTodoList] = useState<Todo[]>(todo);

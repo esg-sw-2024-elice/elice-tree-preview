@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import { BaseButton } from 'components';
 import { PALETTE } from 'styles';
 
-export const TodolistButtonWrapper = styled(BaseButton)<{ content: string }>`
-  background-color: ${(props) =>
-    props.content === 'completed' ? PALETTE.MAIN_PURPLE : PALETTE.LIGHT_GREEN};
+export const TodolistButtonWrapper = styled(BaseButton)`
+  background-color: ${PALETTE.MAIN_PURPLE};
   color: white;
   cursor: pointer;
 `;
