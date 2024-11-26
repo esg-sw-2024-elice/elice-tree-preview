@@ -1,16 +1,14 @@
-import { Router } from 'components';
-import React from 'react';
-import GlobalStyle from 'styles/global/GlobalStyle';
-import { FontContainer } from 'styles/global/index.styles';
+import { FontProvider } from './providers/font-provider';
+import AuthProvider from './providers/auth-provider';
+import { RouterProvider } from './providers/router-provider';
 
 function App() {
   return (
-    <div className="App">
-      <GlobalStyle />
-      <FontContainer>
-        <Router />
-      </FontContainer>
-    </div>
+    <FontProvider>
+      <AuthProvider>
+        <RouterProvider />
+      </AuthProvider>
+    </FontProvider>
   );
 }
 
