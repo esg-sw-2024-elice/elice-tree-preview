@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "content": "콘센트 뽑기1",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "content": "콘센트 뽑기2",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "content": "콘센트 뽑기3",
+    "completed": false
+  }
+]
