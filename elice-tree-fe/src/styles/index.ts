@@ -1,3 +1,1 @@
-import { PALETTE } from './colors';
-
-export { PALETTE };
+export * from './colors';
