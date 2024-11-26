@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { Auth, Landing, NotFound, Todos } from '@/pages';
 import AuthenticatedMainLayout from '@/components/shared/layout/AuthenticatedMainLayout';
-import { useAuth } from '../hooks/use-auth';
+import { useAuth } from '@/hooks/use-auth';
 
 export const KEYS_ROUTE = {
   BASE: '/',

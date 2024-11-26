@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import LoginButton from '@/components/auth/LoginButton';
 import IdInput from '@/components/auth/IdInput';
 import PwInput from '@/components/auth/PwInput';
-import { KEYS_ROUTE } from '../../providers/router-provider';
-import { useAuth } from '../../hooks/use-auth';
+import { KEYS_ROUTE } from '@/providers/router-provider';
+import { useAuth } from '@/hooks/use-auth';
 
 export default function AuthPage() {
   const [enteredId, setEnteredId] = useState('');

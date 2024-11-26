@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
-import { PALETTE } from '../../styles';
+import { PALETTE } from '@/styles';
 
 export const HeaderContainer = styled.header`
   width: 100%;
