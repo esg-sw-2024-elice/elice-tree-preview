@@ -1,7 +1,14 @@
-export default function NotFound() {
+import { Helmet } from 'react-helmet-async';
+
+const TITLE_PAGE = 'Elice Tree | 404 Not Found';
+
+export default function Page404() {
   return (
-    <div>
-      <h1>404 Not Found</h1>
-    </div>
+    <>
+      <Helmet>
+        <title>{TITLE_PAGE}</title>
+      </Helmet>
+      잘못된 접근입니다...
+    </>
   );
 }
