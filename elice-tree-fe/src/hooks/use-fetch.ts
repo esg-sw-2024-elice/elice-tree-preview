@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MSG_FAILED_TO_FETCH } from '@/constants';
+import { MSG_ERROR_FAIL_TO_FETCH } from '@/constants';
 
 type TReqMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
@@ -12,7 +12,7 @@ export function useFetch<T>(url: string, method: TReqMethod = 'GET') {
     fetch(url, { method })
       .then(async (r) => {
         if (!r.ok) {
-          throw new Error(MSG_FAILED_TO_FETCH);
+          throw new Error(MSG_ERROR_FAIL_TO_FETCH);
         }
         return r.json();
       })

@@ -1,12 +1,10 @@
 import * as styled from 'styled-components';
 import * as fontStyle from 'pretendard/dist/web/static/pretendard-dynamic-subset.css';
-import { ReactNode } from 'react';
 
-const GlobalStyle = styled.createGlobalStyle`
+export const GlobalStyle = styled.createGlobalStyle`
   ${fontStyle}
-  body {
-    margin: 0;
-    padding: 0;
+
+  * {
     font-family:
       'Pretendard Variable',
       Pretendard,
@@ -24,13 +22,40 @@ const GlobalStyle = styled.createGlobalStyle`
       'Segoe UI Symbol',
       sans-serif;
   }
-`;
 
-export function FontProvider({ children }: { children: ReactNode }) {
-  return (
-    <>
-      <GlobalStyle />
-      {children}
-    </>
-  );
-}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      opacity: 0.8;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  *:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+`;
