@@ -1,27 +1,13 @@
-import { KEYS_ROUTE } from '@/constants';
 import * as S from './Header.styles';
-
+import {
+  KEYS_ROUTE,
+  menusNavigation,
+  TEXT_HEADER_BUTTON_SIGNIN,
+  TEXT_HEADER_BUTTON_SIGNOUT,
+} from '@/constants';
 import imgLogo from '@/assets/images/logo-elice.png';
 import { useAuth } from '@/hooks/use-auth';
 import { useNavigate } from 'react-router-dom';
-
-const menusNavigation = [
-  {
-    protected: false,
-    text: '서비스 소개',
-    to: KEYS_ROUTE.LANDING(),
-  },
-  {
-    protected: true,
-    text: '나무 심기',
-    to: KEYS_ROUTE.TODOS(),
-  },
-  {
-    protected: true,
-    text: '환경 살리기',
-    to: 'https://www.elice.io',
-  },
-];
 
 export default function Header() {
   const navigate = useNavigate();
@@ -58,9 +44,9 @@ export default function Header() {
       <S.ImageLogo src={imgLogo} />
       <S.NavigationMenus>{contentMenus}</S.NavigationMenus>
       {isAuthenticated ? (
-        <S.ButtonAuth onClick={handleClickBtnSignOut}>로그아웃</S.ButtonAuth>
+        <S.ButtonAuth onClick={handleClickBtnSignOut}>{TEXT_HEADER_BUTTON_SIGNOUT}</S.ButtonAuth>
       ) : (
-        <S.ButtonAuth onClick={handleClickBtnSignIn}>로그인</S.ButtonAuth>
+        <S.ButtonAuth onClick={handleClickBtnSignIn}>{TEXT_HEADER_BUTTON_SIGNIN}</S.ButtonAuth>
       )}
     </S.HeaderContainer>
   );

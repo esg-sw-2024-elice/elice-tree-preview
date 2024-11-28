@@ -1,4 +1,5 @@
 import * as S from './Todo.styles';
+import { TEXT_TODO_BUTTON_DELETE } from '@/constants';
 import { ITodo } from '@/interfaces';
 
 export default function Todo({
@@ -21,7 +22,9 @@ export default function Todo({
       <S.ParagraphTodoContent isCompleted={completed}>
         <span>{content}</span>
       </S.ParagraphTodoContent>
-      <S.ButtonDelete onClick={() => handleClickBtnDelete(id)}>삭제</S.ButtonDelete>
+      <S.ButtonDelete onClick={() => handleClickBtnDelete(id)}>
+        {TEXT_TODO_BUTTON_DELETE}
+      </S.ButtonDelete>
     </S.ListContainer>
   );
 }

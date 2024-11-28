@@ -1,6 +1,8 @@
 export const MSG_ERROR_FAIL_TO_FETCH = '데이터를 읽어오는 데 실패했습니다...';
 
-export const MSG_SUCCESS_TO_SIGNIN = (userId: string) => `${userId}님 오늘도 탄소배출을 줄여봐요!`;
+export const MSG_SUCCESS_TO_SIGNIN = (userId: string) => `\
+${userId}님 오늘도 탄소배출을 줄여봐요!\
+`;
 
 export const MSG_SUCCESS_TO_SIGNUP = `회원 가입이 완료되었습니다. 이제 로그인해보세요!`;
 

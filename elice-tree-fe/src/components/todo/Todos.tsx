@@ -4,6 +4,12 @@ import TodoElement from './Todo';
 import AddTodo from './AddTodo';
 import { useAuth } from '@/hooks/use-auth';
 import { useTodo } from '@/hooks/use-todo';
+import {
+  TEXT_TODOS_FOOTER_SUMMARY,
+  TEXT_TODOS_FOOTER_SUMMARY_EMPTY,
+  TEXT_TODOS_TITLE_PARAGRAPH,
+  TEXT_TODOS_DIV_TOTAL,
+} from '@/constants';
 
 export default function Todos() {
   const { isAuthenticated, userId } = useAuth();
@@ -16,13 +22,9 @@ export default function Todos() {
   const summaryFooter =
     isAuthenticated && Boolean(userId?.trim().length) ? (
       Boolean(lengthTodos) ? (
-        <>
-          {`${userId} 님은 ${lengthTodosCompleted} kg 의 탄소를 절약하셨습니다.`}
-          <br />
-          {`${lengthTodos} 그루의 나무를 심으셨어요!`}
-        </>
+        <>{TEXT_TODOS_FOOTER_SUMMARY(userId, lengthTodosCompleted, lengthTodos)}</>
       ) : (
-        <>할 일 나무를 심고 탄소를 절약해보세요!</>
+        <>{TEXT_TODOS_FOOTER_SUMMARY_EMPTY}</>
       )
     ) : (
       <></>
@@ -31,13 +33,13 @@ export default function Todos() {
     <S.DivContainer>
       <S.DivWrapperList>
         <S.IconList />
-        <S.ParagraphTitle>탄소배출감소 동참하기</S.ParagraphTitle>
+        <S.ParagraphTitle>{TEXT_TODOS_TITLE_PARAGRAPH}</S.ParagraphTitle>
         <S.UnorderedListContainer>
           {todos.map((todo) => (
             <TodoElement key={todo.id} todo={todo} onToggle={toggleTodo} onDelete={deleteTodo} />
           ))}
         </S.UnorderedListContainer>
-        <S.DivTotal>{`총 ${lengthTodosCompleted} kg 의 탄소`}</S.DivTotal>
+        <S.DivTotal>{TEXT_TODOS_DIV_TOTAL(lengthTodosCompleted)}</S.DivTotal>
         <AddTodo onClick={addTodo} />
       </S.DivWrapperList>
       <S.Heading1Summary>{summaryFooter}</S.Heading1Summary>

@@ -27,4 +27,5 @@ export const ParagraphTodoContent = styled.p<{ isCompleted: boolean }>`
 
 export const ButtonDelete = styled(BaseButton)`
   margin: 0 0 0 auto;
+  background-color: ${PALETTE.LIGHT_RED};
 `;
