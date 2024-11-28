@@ -19,9 +19,7 @@ export default function Todo({
       <S.ButtonToggle onClick={() => handleClickBtnComplete(id)}>
         <S.SpanToggle>{completed ? '✔' : ''}</S.SpanToggle>
       </S.ButtonToggle>
-      <S.ParagraphTodoContent isCompleted={completed}>
-        <span>{content}</span>
-      </S.ParagraphTodoContent>
+      <S.ParagraphTodoContent isCompleted={completed}>{content}</S.ParagraphTodoContent>
       <S.ButtonDelete onClick={() => handleClickBtnDelete(id)}>
         {TEXT_TODO_BUTTON_DELETE}
       </S.ButtonDelete>

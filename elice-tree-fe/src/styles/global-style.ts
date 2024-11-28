@@ -1,7 +1,7 @@
 import * as styled from 'styled-components';
 import * as fontStyle from 'pretendard/dist/web/static/pretendard-dynamic-subset.css';
 
-export const GlobalStyle = styled.createGlobalStyle`
+export default styled.createGlobalStyle`
   ${fontStyle}
 
   * {
