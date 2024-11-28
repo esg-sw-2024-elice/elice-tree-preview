@@ -44,7 +44,7 @@ export default function SignUp() {
         </S.DivWrapperInput>
       </S.DivContainerSignUpForm>
       <S.Heading1Title>
-        로그인 후<br />
+        회원가입 후<br />
         탄소배출감소에 동참하세요!
       </S.Heading1Title>
       <S.ParagraphDescription>
