@@ -1,6 +1,10 @@
 import * as S from './AddTodo.styles';
 import { ChangeEvent, KeyboardEvent, useState } from 'react';
-import { MSG_ERROR_VALIDATION_TODO_CONTENT } from '@/constants';
+import {
+  MSG_ERROR_VALIDATION_TODO_CONTENT,
+  TEXT_ADD_TODO_BUTTON_ADD,
+  TEXT_ADD_TODO_INPUT_PLACEHOLDER,
+} from '@/constants';
 
 export default function AddTodo({ onClick }: { onClick: (todo: string) => void }) {
   const [enteredTodo, setEnteredTodo] = useState('');
@@ -27,9 +31,11 @@ export default function AddTodo({ onClick }: { onClick: (todo: string) => void }
         value={enteredTodo}
         onChange={handleChangeInputTodo}
         onKeyDown={handlePressKeyDown}
-        placeholder="나무에 새길 할 일을 입력해보세요!"
+        placeholder={TEXT_ADD_TODO_INPUT_PLACEHOLDER}
       />
-      <S.ButtonAddTodo onClick={handleClickBtnCreateTodo}>나무 심기</S.ButtonAddTodo>
+      <S.ButtonAddTodo onClick={handleClickBtnCreateTodo}>
+        {TEXT_ADD_TODO_BUTTON_ADD}
+      </S.ButtonAddTodo>
     </S.DivContainer>
   );
 }
