@@ -22,7 +22,8 @@ export const SpanToggle = styled.span`
 `;
 
 export const ParagraphTodoContent = styled.p<{ isCompleted: boolean }>`
-  text-decoration: ${({ isCompleted }) => (isCompleted ? 'line-through' : 'none')};
+  text-decoration: ${({ isCompleted }) =>
+    isCompleted ? `2px line-through ${PALETTE.MAIN_RED}` : 'none'};
 `;
 
 export const ButtonDelete = styled(BaseButton)`

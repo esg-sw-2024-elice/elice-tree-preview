@@ -1,15 +1,28 @@
 import styled from 'styled-components';
-import { PALETTE } from '@/styles';
+import { breakpoints, PALETTE } from '@/styles';
 import { ReactComponent as _IconList } from '@/assets/icons/icon-mono-list.svg';
 
 export const DivContainer = styled.div`
+  margin: 52px 16px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 52px;
-  margin-left: 640px;
-  margin-right: 640px;
+
+  ${breakpoints.sm} {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
+
+  ${breakpoints.md} {
+    margin-left: 128px;
+    margin-right: 128px;
+  }
+
+  ${breakpoints.lg} {
+    margin-left: 640px;
+    margin-right: 640px;
+  }
 `;
 
 export const DivWrapperList = styled.div`
