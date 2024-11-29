@@ -1,7 +1,7 @@
 import * as S from './Todos.styles';
 import { useMemo } from 'react';
 import TodoElement from './Todo';
-import AddTodo from './AddTodo';
+// import AddTodo from './AddTodo';
 import { useAuth } from '@/hooks/use-auth';
 import { useTodo } from '@/hooks/use-todo';
 import {
@@ -13,7 +13,7 @@ import {
 
 export default function Todos() {
   const { isAuthenticated, userId } = useAuth();
-  const { todos, addTodo, toggleTodo, deleteTodo } = useTodo();
+  const { todos, toggleTodo } = useTodo();
   const lengthTodos = useMemo(() => todos.length, [todos]);
   const lengthTodosCompleted = useMemo(
     () => todos.filter((todo) => todo.completed).length,
@@ -34,13 +34,15 @@ export default function Todos() {
       <S.DivWrapperList>
         <S.IconList />
         <S.ParagraphTitle>{TEXT_TODOS_TITLE_PARAGRAPH}</S.ParagraphTitle>
-        <S.UnorderedListContainer>
-          {todos.map((todo) => (
-            <TodoElement key={todo.id} todo={todo} onToggle={toggleTodo} onDelete={deleteTodo} />
-          ))}
-        </S.UnorderedListContainer>
-        <S.DivTotal>{TEXT_TODOS_DIV_TOTAL(lengthTodosCompleted)}</S.DivTotal>
-        <AddTodo onClick={addTodo} />
+        <S.ContentsWrapper>
+          <S.UnorderedListContainer>
+            {todos.map((todo) => (
+              <TodoElement key={todo.id} todo={todo} onToggle={toggleTodo} />
+            ))}
+          </S.UnorderedListContainer>
+          <S.DivTotal>{TEXT_TODOS_DIV_TOTAL(lengthTodosCompleted)}</S.DivTotal>
+        </S.ContentsWrapper>
+        {/* <AddTodo onClick={addTodo} /> */}
       </S.DivWrapperList>
       <S.Heading1Summary>{summaryFooter}</S.Heading1Summary>
     </S.DivContainer>

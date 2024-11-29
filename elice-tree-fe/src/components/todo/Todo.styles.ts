@@ -5,6 +5,7 @@ import BaseButton from '@/components/shared/BaseButton';
 export const ListContainer = styled.li`
   width: 100%;
   display: flex;
+  justify-content: space-between;
   gap: 16px;
   padding: 8px;
 `;
