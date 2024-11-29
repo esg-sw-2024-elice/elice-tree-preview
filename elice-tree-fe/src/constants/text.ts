@@ -67,17 +67,13 @@ export const TEXT_SIGNUP_BUTTON_GO_TO_SIGNIN = '이미 회원이신가요?';
 
 export const TEXT_TODOS_TITLE_PARAGRAPH = '탄소배출감소 동참하기';
 
-export const TEXT_TODOS_DIV_TOTAL = (lengthTodosCompleted: number) => `\
-총 ${lengthTodosCompleted} kg 의 탄소\
+export const TEXT_TODOS_DIV_TOTAL = (totalCarbon: number) => `\
+총 ${totalCarbon} kg 의 탄소\
 `;
 
-export const TEXT_TODOS_FOOTER_SUMMARY = (
-  userId: string,
-  lengthTodosCompleted: number,
-  lengthTodos: number,
-) => `\
-${userId} 님은 ${lengthTodosCompleted} kg 의 탄소를 절약하셨습니다.
-${lengthTodos} 그루의 나무를 심으셨어요!\
+export const TEXT_TODOS_FOOTER_SUMMARY = (userId: string, lengthTodos: number) => `\
+${userId} 님은
+${lengthTodos} 그루의 나무를 심으셨어요!
 `;
 
 export const TEXT_TODOS_FOOTER_SUMMARY_EMPTY = '할 일 나무를 심고 탄소를 절약해보세요!';
