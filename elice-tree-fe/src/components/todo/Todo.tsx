@@ -8,13 +8,13 @@ export default function Todo({
   todo: ITodo;
   onToggle: (index: number) => void;
 }) {
-  const { id, content, completed } = todo;
+  const { id, content, isCompleted } = todo;
   const handleClickBtnComplete = onToggle;
   return (
     <S.ListContainer>
-      <S.ParagraphTodoContent isCompleted={completed}>{content}</S.ParagraphTodoContent>
+      <S.ParagraphTodoContent isCompleted={isCompleted}>{content}</S.ParagraphTodoContent>
       <S.ButtonToggle onClick={() => handleClickBtnComplete(id)}>
-        <S.SpanToggle>{completed ? '✔' : ''}</S.SpanToggle>
+        <S.SpanToggle>{isCompleted ? '✔' : ''}</S.SpanToggle>
       </S.ButtonToggle>
     </S.ListContainer>
   );

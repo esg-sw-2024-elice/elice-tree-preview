@@ -15,14 +15,24 @@ export default function Todos() {
   const { isAuthenticated, userId } = useAuth();
   const { todos, toggleTodo } = useTodo();
   const lengthTodos = useMemo(() => todos.length, [todos]);
-  const lengthTodosCompleted = useMemo(
-    () => todos.filter((todo) => todo.completed).length,
-    [todos],
-  );
+  const totalCarbon = useMemo(() => {
+    return todos
+      .filter((todo) => todo.isCompleted) // isCompleted가 true인 항목 필터링
+      .reduce((total, todo) => total + (todo.carbon || 0), 0)
+      .toFixed(2);
+  }, [todos]);
+
+  const totalTree = useMemo(() => {
+    return todos
+      .filter((todo) => todo.isCompleted) // isCompleted가 true인 항목 필터링
+      .reduce((total, todo) => total + (todo.tree || 0), 0)
+      .toFixed(2);
+  }, [todos]);
+
   const summaryFooter =
     isAuthenticated && Boolean(userId?.trim().length) ? (
       Boolean(lengthTodos) ? (
-        <>{TEXT_TODOS_FOOTER_SUMMARY(userId, lengthTodosCompleted, lengthTodos)}</>
+        <>{TEXT_TODOS_FOOTER_SUMMARY(userId, Number(totalTree))}</>
       ) : (
         <>{TEXT_TODOS_FOOTER_SUMMARY_EMPTY}</>
       )
@@ -40,7 +50,7 @@ export default function Todos() {
               <TodoElement key={todo.id} todo={todo} onToggle={toggleTodo} />
             ))}
           </S.UnorderedListContainer>
-          <S.DivTotal>{TEXT_TODOS_DIV_TOTAL(lengthTodosCompleted)}</S.DivTotal>
+          <S.DivTotal>{TEXT_TODOS_DIV_TOTAL(Number(totalCarbon))}</S.DivTotal>
         </S.ContentsWrapper>
         {/* <AddTodo onClick={addTodo} /> */}
       </S.DivWrapperList>

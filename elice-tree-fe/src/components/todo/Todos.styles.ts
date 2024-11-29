@@ -25,8 +25,8 @@ export const DivContainer = styled.div`
   }
 
   ${breakpoints.xl} {
-    margin-left: 28%;
-    margin-right: 28%;
+    margin-left: 30%;
+    margin-right: 30%;
   }
 `;
 
@@ -62,6 +62,7 @@ export const ContentsWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   flex-grow: 1;
+  margin-top: 10px;
 `;
 
 export const UnorderedListContainer = styled.ul`

@@ -1,5 +1,7 @@
 export interface ITodo {
   id: number;
   content: string;
-  completed: boolean;
+  isCompleted: boolean;
+  carbon: number;
+  tree: number;
 }
