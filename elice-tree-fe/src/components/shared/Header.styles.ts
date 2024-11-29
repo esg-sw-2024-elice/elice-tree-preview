@@ -47,17 +47,17 @@ export const NavigationMenus = styled.nav`
 
   ${breakpoints.sm} {
     margin-left: 36px;
-    column-gap: 36px;
+    column-gap: 20px;
   }
 
   ${breakpoints.md} {
     margin-left: 52px;
-    column-gap: 52px;
+    column-gap: 36px;
   }
 
   ${breakpoints.lg} {
     margin-left: 100px;
-    column-gap: 100px;
+    column-gap: 84px;
   }
 `;
 
@@ -65,6 +65,15 @@ export const LinkNavItem = styled(Link)`
   color: ${PALETTE.BLACK_PERL};
   font-weight: 700;
   font-size: 14px;
+
+  padding: 16px 16px;
+  box-sizing: border-box;
+
+  border-radius: 12px;
+
+  &:hover {
+    background-color: ${PALETTE.SLATE_GREY_200};
+  }
 
   ${breakpoints.sm} {
     font-size: 16px;
@@ -75,6 +84,13 @@ export const LinkGoToExternal = styled.a`
   color: ${PALETTE.BLACK_PERL};
   font-weight: 700;
   font-size: 14px;
+  padding: 16px 16px;
+  border-radius: 12px;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: ${PALETTE.SLATE_GREY_200};
+  }
 
   ${breakpoints.sm} {
     font-size: 16px;

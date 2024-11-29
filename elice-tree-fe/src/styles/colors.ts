@@ -16,6 +16,7 @@ const PALETTE = {
   BLACK_PERL: '#191F28',
   PIGMENT_GREEN: '#00AB53',
   ALICE_BLUE: '#F9FAFC',
+  SLATE_GREY_200: '#e5e7eb',
 } as const;
 
 type PaletteType = typeof PALETTE;
