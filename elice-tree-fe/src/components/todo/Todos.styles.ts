@@ -10,31 +10,35 @@ export const DivContainer = styled.div`
   align-items: center;
 
   ${breakpoints.sm} {
-    margin-left: 64px;
-    margin-right: 64px;
+    margin-left: 15%;
+    margin-right: 15%;
   }
 
   ${breakpoints.md} {
-    margin-left: 128px;
-    margin-right: 128px;
+    margin-left: 20%;
+    margin-right: 20%;
   }
 
   ${breakpoints.lg} {
-    margin-left: 640px;
-    margin-right: 640px;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  ${breakpoints.xl} {
+    margin-left: 28%;
+    margin-right: 28%;
   }
 `;
 
 export const DivWrapperList = styled.div`
   width: 100%;
   min-height: 600px;
-  padding-top: 36px;
-  padding-left: 64px;
-  padding-right: 64px;
+  padding: 36px 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  border-radius: 8px;
   background-color: ${PALETTE.WHITE};
   box-shadow: 7px 5px 5px 10px rgba(0, 0, 0, 0.08);
 `;
@@ -45,10 +49,18 @@ export const IconList = styled(_IconList)`
 `;
 
 export const ParagraphTitle = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   font-weight: 700;
   color: ${PALETTE.PIGMENT_GREEN};
+`;
+
+export const ContentsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 1;
 `;
 
 export const UnorderedListContainer = styled.ul`
@@ -56,6 +68,7 @@ export const UnorderedListContainer = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
   border: 1px solid ${PALETTE.SOLITUDE};
   background-color: ${PALETTE.ALICE_BLUE};
 `;
