@@ -61,7 +61,7 @@ export const NavigationMenus = styled.nav`
   }
 `;
 
-export const LinkNavItem = styled(Link)`
+export const LinkNavItem = styled(Link)<{ $isActive: boolean }>`
   color: ${PALETTE.BLACK_PERL};
   font-weight: 700;
   font-size: 14px;
@@ -70,6 +70,7 @@ export const LinkNavItem = styled(Link)`
   box-sizing: border-box;
 
   border-radius: 12px;
+  background-color: ${(props) => (props.$isActive ? PALETTE.SLATE_GREY_200 : PALETTE.WHITE)};
 
   &:hover {
     background-color: ${PALETTE.SLATE_GREY_200};
