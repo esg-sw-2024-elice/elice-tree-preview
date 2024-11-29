@@ -31,6 +31,7 @@ export const DivContainer = styled.div`
 `;
 
 export const DivWrapperList = styled.div`
+  position: relative;
   width: 100%;
   min-height: 600px;
   padding: 36px 64px;
@@ -40,7 +41,7 @@ export const DivWrapperList = styled.div`
   gap: 16px;
   border-radius: 8px;
   background-color: ${PALETTE.WHITE};
-  box-shadow: 7px 5px 5px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 5px 5px 5px 10px rgba(0, 0, 0, 0.05);
 `;
 
 export const IconList = styled(_IconList)`
@@ -74,7 +75,9 @@ export const UnorderedListContainer = styled.ul`
 `;
 
 export const DivTotal = styled.div`
-  width: 100%;
+  position: absolute;
+  bottom: 10%;
+  width: 80%;
   height: 44px;
   display: flex;
   justify-content: center;
