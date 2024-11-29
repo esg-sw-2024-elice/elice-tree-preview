@@ -13,7 +13,3 @@ export const MSG_ERROR_FAIL_TO_SIGNUP = '회원가입에 실패했습니다...';
 export const MSG_ERROR_VALIDATION_USER_ID = '아이디를 입력해주세요...';
 
 export const MSG_ERROR_VALIDATION_USER_PASSWORD = '비밀번호를 입력해주세요...';
-
-export const MSG_ERROR_VALIDATION_TODO_CONTENT = '나무에 새길 할 일을 입력해주세요...';
-
-export const MSG_ERROR_VALIDATION_TODO_DUPLICATE = '이미 나무에 새겨진 할 일이에요...';
