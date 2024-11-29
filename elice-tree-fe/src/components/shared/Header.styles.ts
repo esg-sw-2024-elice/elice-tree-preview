@@ -30,11 +30,23 @@ export const NavigationMenus = styled.nav`
 export const LinkNavItem = styled(Link)`
   color: ${PALETTE.BLACK_PERL};
   font-weight: 700;
+  padding: 13px;
+  border-radius: 10px;
+  &:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+  }
 `;
 
 export const LinkGoToExternal = styled.a`
   color: ${PALETTE.BLACK_PERL};
   font-weight: 700;
+  padding: 13px;
+  border-radius: 10px;
+  &:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+  }
 `;
 
 export const ButtonAuth = styled(BaseButton)`
