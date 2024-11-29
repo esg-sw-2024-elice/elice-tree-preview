@@ -15,9 +15,13 @@ export default function Header() {
   const handleClickBtnSignIn = () => {
     navigate(KEYS_ROUTE.SIGNIN());
   };
+  const handleClickBtnLogo = () => {
+    navigate('/');
+  };
   const handleClickBtnSignOut = signOut;
   const handleClickBtnGoToExternal = (to: string) => window.open(to);
   const contentMenus = menusNavigation.map((menu, idx) => {
+    const isActive = window.location.pathname === menu.to;
     if (menu.protected && !isAuthenticated) {
       return null;
     }
@@ -34,14 +38,14 @@ export default function Header() {
       );
     }
     return (
-      <S.LinkNavItem key={idx} to={menu.to}>
+      <S.LinkNavItem key={idx} to={menu.to} $isActive={isActive}>
         {menu.text}
       </S.LinkNavItem>
     );
   });
   return (
     <S.HeaderContainer>
-      <S.ImageLogo src={imgLogo} />
+      <S.ImageLogo src={imgLogo} onClick={handleClickBtnLogo} />
       <S.NavigationMenus>{contentMenus}</S.NavigationMenus>
       {isAuthenticated ? (
         <S.ButtonAuth onClick={handleClickBtnSignOut}>{TEXT_HEADER_BUTTON_SIGNOUT}</S.ButtonAuth>

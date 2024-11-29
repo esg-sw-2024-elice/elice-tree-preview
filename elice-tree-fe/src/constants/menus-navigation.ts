@@ -19,6 +19,6 @@ export const menusNavigation = [
   {
     protected: true,
     text: TEXT_HEADER_NAVIGATION_CAMPAIGN,
-    to: 'https://www.elice.io',
+    to: 'https://greenfund.org/m31.php',
   },
 ];
