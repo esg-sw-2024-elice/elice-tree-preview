@@ -72,7 +72,7 @@ export const TEXT_TODOS_DIV_TOTAL = (totalCarbon: number) => `\
 `;
 
 export const TEXT_TODOS_FOOTER_SUMMARY = (userId: string, lengthTodos: number) => `\
-${userId} 님은
+${userId} 님은 
 ${lengthTodos} 그루의 나무를 심으셨어요!
 `;
 
