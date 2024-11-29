@@ -1,29 +1,45 @@
 import styled from 'styled-components';
-import { PALETTE } from '@/styles';
+import { breakpoints, PALETTE } from '@/styles';
 import { ReactComponent as _IconList } from '@/assets/icons/icon-mono-list.svg';
 
 export const DivContainer = styled.div`
+  margin: 52px 16px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 52px;
-  margin-left: 640px;
-  margin-right: 640px;
+
+  ${breakpoints.sm} {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  ${breakpoints.md} {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  ${breakpoints.lg} {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
+  ${breakpoints.xl} {
+    margin-left: 28%;
+    margin-right: 28%;
+  }
 `;
 
 export const DivWrapperList = styled.div`
   position: relative;
   width: 100%;
   min-height: 600px;
-  border-radius: 30px;
-  padding-top: 36px;
-  padding-left: 64px;
-  padding-right: 64px;
+  padding: 36px 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  border-radius: 8px;
   background-color: ${PALETTE.WHITE};
   box-shadow: 5px 5px 5px 10px rgba(0, 0, 0, 0.05);
 `;
@@ -34,10 +50,18 @@ export const IconList = styled(_IconList)`
 `;
 
 export const ParagraphTitle = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   font-weight: 700;
   color: ${PALETTE.PIGMENT_GREEN};
+`;
+
+export const ContentsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 1;
 `;
 
 export const UnorderedListContainer = styled.ul`
@@ -45,6 +69,7 @@ export const UnorderedListContainer = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
+  border-radius: 5px;
   border: 1px solid ${PALETTE.SOLITUDE};
   background-color: ${PALETTE.ALICE_BLUE};
 `;

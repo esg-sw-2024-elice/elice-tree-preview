@@ -10,12 +10,10 @@ export const CtxTodo = createContext<{
   todos: ITodo[];
   addTodo: (content: string) => void;
   toggleTodo: (index: number) => void;
-  deleteTodo: (index: number) => void;
 }>({
   todos: [],
   addTodo: () => {},
   toggleTodo: () => {},
-  deleteTodo: () => {},
 });
 
 export default function TodoProvider({ children }: PropsWithChildren) {
@@ -49,14 +47,12 @@ export default function TodoProvider({ children }: PropsWithChildren) {
         return todo;
       }),
     );
-  const deleteTodo = (index: number) => setTodos((p) => p.filter((todo) => todo.id !== index));
   return (
     <CtxTodo.Provider
       value={{
         todos,
         addTodo,
         toggleTodo,
-        deleteTodo,
       }}
     >
       {children}

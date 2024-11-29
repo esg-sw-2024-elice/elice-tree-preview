@@ -5,6 +5,7 @@ import BaseButton from '@/components/shared/BaseButton';
 export const ListContainer = styled.li`
   width: 100%;
   display: flex;
+  justify-content: space-between;
   gap: 16px;
   padding: 8px;
 `;
@@ -22,9 +23,11 @@ export const SpanToggle = styled.span`
 `;
 
 export const ParagraphTodoContent = styled.p<{ isCompleted: boolean }>`
-  text-decoration: ${({ isCompleted }) => (isCompleted ? 'line-through' : 'none')};
+  text-decoration: ${({ isCompleted }) =>
+    isCompleted ? `2px line-through ${PALETTE.MAIN_RED}` : 'none'};
 `;
 
 export const ButtonDelete = styled(BaseButton)`
   margin: 0 0 0 auto;
+  background-color: ${PALETTE.LIGHT_RED};
 `;

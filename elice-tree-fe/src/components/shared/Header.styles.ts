@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { PALETTE } from '@/styles';
+import { breakpoints, PALETTE } from '@/styles';
 import BaseButton from './BaseButton';
 
 export const HeaderContainer = styled.header`
@@ -8,50 +8,98 @@ export const HeaderContainer = styled.header`
   height: 80px;
   display: flex;
   align-items: center;
-  padding: 0px 52px 0px 24px;
+  padding: 0px 16px;
   border-bottom: 1px solid ${PALETTE.GAINSBORO};
   background-color: ${PALETTE.WHITE};
+
+  ${breakpoints.sm} {
+    padding: 0px 24px;
+  }
+
+  ${breakpoints.lg} {
+    padding: 0px 52px 0px 24px;
+  }
 `;
 
 export const ImageLogo = styled.img`
   cursor: pointer;
-  width: 133px;
-  margin-left: 44px;
+  width: 96px;
+
+  ${breakpoints.sm} {
+    width: 112px;
+  }
+
+  ${breakpoints.md} {
+    width: 133px;
+  }
+
+  ${breakpoints.lg} {
+    margin-left: 44px;
+  }
 `;
 
 export const NavigationMenus = styled.nav`
   width: 100%;
-  margin-left: 100px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
-  column-gap: 100px;
+  column-gap: 20px;
+
+  ${breakpoints.sm} {
+    margin-left: 36px;
+    column-gap: 20px;
+  }
+
+  ${breakpoints.md} {
+    margin-left: 52px;
+    column-gap: 36px;
+  }
+
+  ${breakpoints.lg} {
+    margin-left: 100px;
+    column-gap: 84px;
+  }
 `;
 
 export const LinkNavItem = styled(Link)`
   color: ${PALETTE.BLACK_PERL};
   font-weight: 700;
-  padding: 13px;
-  border-radius: 10px;
+  font-size: 14px;
+
+  padding: 16px 16px;
+  box-sizing: border-box;
+
+  border-radius: 12px;
+
   &:hover {
-    background-color: #f0f0f0;
-    transition: background-color 0.3s ease;
+    background-color: ${PALETTE.SLATE_GREY_200};
+  }
+
+  ${breakpoints.sm} {
+    font-size: 16px;
   }
 `;
 
 export const LinkGoToExternal = styled.a`
   color: ${PALETTE.BLACK_PERL};
   font-weight: 700;
-  padding: 13px;
-  border-radius: 10px;
+  font-size: 14px;
+  padding: 16px 16px;
+  border-radius: 12px;
+  box-sizing: border-box;
+
   &:hover {
-    background-color: #f0f0f0;
-    transition: background-color 0.3s ease;
+    background-color: ${PALETTE.SLATE_GREY_200};
+  }
+
+  ${breakpoints.sm} {
+    font-size: 16px;
   }
 `;
 
 export const ButtonAuth = styled(BaseButton)`
   width: 109px;
-  height: 48px;
+  height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,5 +109,13 @@ export const ButtonAuth = styled(BaseButton)`
   color: ${PALETTE.WHITE};
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 14px;
+
+  ${breakpoints.sm} {
+    font-size: 16px;
+  }
+
+  ${breakpoints.lg} {
+    height: 48px;
+  }
 `;

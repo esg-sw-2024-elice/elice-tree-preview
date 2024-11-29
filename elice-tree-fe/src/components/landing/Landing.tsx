@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
 import * as S from './Landing.styles';
-import landingPic1 from '@/assets/images/bg-landing.png';
-import landingPic2 from '@/assets/images/bg-landing2.png';
-import landingPic3 from '@/assets/images/bg-landing3.png';
+import { useState, useEffect } from 'react';
+import imageCarousel1 from '@/assets/images/bg-landing.png';
+import imageCarousel2 from '@/assets/images/bg-landing2.png';
+import imageCarousel3 from '@/assets/images/bg-landing3.png';
+import {
+  TEXT_LANDING_CONTENT,
+  TEXT_LANDING_HEADING1_INTRODUCE,
+  TEXT_LANDING_IMAGE_CAROUSEL_ALTERNATIVE,
+} from '@/constants';
 
-const images = [landingPic1, landingPic2, landingPic3];
+const images = [imageCarousel1, imageCarousel2, imageCarousel3];
 
 export default function Landing() {
   const [currentIdx, setCurrentIdx] = useState(0);

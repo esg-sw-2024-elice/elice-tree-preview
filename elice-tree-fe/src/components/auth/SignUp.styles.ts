@@ -4,6 +4,7 @@ import { PALETTE } from '@/styles';
 import imgBgMonitor from '@/assets/images/bg-monitor.png';
 
 export const DivContainer = styled.div`
+  margin: 60px auto;
   display: flex;
   height: 100%;
   flex-direction: column;
