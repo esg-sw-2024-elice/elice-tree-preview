@@ -1,5 +1,4 @@
 import { createContext, PropsWithChildren, useState } from 'react';
-import { MSG_ERROR_FAIL_TO_SIGNIN, MSG_ERROR_FAIL_TO_SIGNUP } from '@/constants';
 
 const USERS = [
   {
@@ -27,7 +26,6 @@ export default function AuthProvider({ children }: PropsWithChildren) {
   const [userId, setUserId] = useState('');
   const signIn = (userId: string, userPassword: string) => {
     if (!USERS.some((user) => user.userId === userId && user.userPassword === userPassword)) {
-      alert(MSG_ERROR_FAIL_TO_SIGNIN);
       return false;
     }
     localStorage.setItem('userId', userId);
@@ -38,7 +36,6 @@ export default function AuthProvider({ children }: PropsWithChildren) {
   };
   const signUp = (userId: string, userPassword: string) => {
     if (USERS.some((user) => user.userId === userId && user.userPassword === userPassword)) {
-      alert(MSG_ERROR_FAIL_TO_SIGNUP);
       return false;
     }
     USERS.push({ userId, userPassword });

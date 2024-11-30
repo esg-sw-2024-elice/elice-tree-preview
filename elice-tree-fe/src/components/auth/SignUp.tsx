@@ -5,19 +5,26 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/use-auth';
 import {
   KEYS_ROUTE,
+  MSG_ERROR_FAIL_TO_SIGNUP,
   MSG_ERROR_VALIDATION_USER_ID,
   MSG_ERROR_VALIDATION_USER_PASSWORD,
+  MSG_ERROR_VALIDATION_USER_PASSWORD_RULE,
   MSG_SUCCESS_TO_SIGNUP,
   TEXT_SIGNUP_BUTTON_GO_TO_SIGNIN,
   TEXT_SIGNUP_BUTTON_SIGNUP,
   TEXT_SIGNUP_IMAGE_LOGO_ELICE_ALTERNATIVE,
   TEXT_SIGNUP_INPUT_PASSWORD_PLACEHOLDER,
+  TEXT_SIGNUP_INPUT_USER_ID_PLACEHOLDER,
   TEXT_SIGNUP_PARAGRAPH_DESCRIPTION,
   TEXT_SINGUP_HEADING1_TITLE,
 } from '@/constants';
 import imgLogoElice from '@/assets/images/logo-elice.png';
+import Modal, { TActionsModal, TDialog } from '@/components/shared/Modal';
+import { validateIsEmpty, validatePassword } from '@/utils';
 
 export default function SignUp() {
+  const refModalSuccess = useRef<TActionsModal>(null);
+  const refModalError = useRef<TActionsModal>(null);
   const refUserId = useRef<HTMLInputElement>(null);
   const refUserPassword = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -25,32 +32,44 @@ export default function SignUp() {
   const handleClickBtnSignUp = () => {
     const enteredUserId = refUserId.current?.value;
     const enteredUserPassword = refUserPassword.current?.value;
-    if (!enteredUserId || enteredUserId.trim() === '') {
-      alert(MSG_ERROR_VALIDATION_USER_ID);
+    if (!validateIsEmpty(enteredUserId)) {
+      handleShowModalError('Error', MSG_ERROR_VALIDATION_USER_ID, 'error');
       return;
     }
-    if (!enteredUserPassword || enteredUserPassword.trim() === '') {
-      alert(MSG_ERROR_VALIDATION_USER_PASSWORD);
+    if (!validateIsEmpty(enteredUserPassword)) {
+      handleShowModalError('Error', MSG_ERROR_VALIDATION_USER_PASSWORD, 'error');
       return;
     }
-    if (!signUp(enteredUserId, enteredUserPassword)) {
+    if (!validatePassword(enteredUserPassword!)) {
+      handleShowModalError('Error', MSG_ERROR_VALIDATION_USER_PASSWORD_RULE, 'error');
       return;
     }
-    alert(MSG_SUCCESS_TO_SIGNUP);
+    if (!signUp(enteredUserId!, enteredUserPassword!)) {
+      handleShowModalError('Error', MSG_ERROR_FAIL_TO_SIGNUP, 'error');
+      return;
+    }
+    handleShowModalSuccess('Success', MSG_SUCCESS_TO_SIGNUP, 'success');
+  };
+  const handleSuccessToSignUp = async () => {
     navigate(KEYS_ROUTE.SIGNIN());
   };
   const handleClickBtnGoToSignIn = () => navigate(KEYS_ROUTE.SIGNIN());
+  function handleShowModalSuccess(title: string, msg: string, type?: TDialog) {
+    refModalSuccess.current?.show(title, msg, type);
+  }
+  function handleShowModalError(title: string, msg: string, type?: TDialog) {
+    refModalError.current?.show(title, msg, type);
+  }
   return (
     <S.DivContainer>
       <S.DivContainerSignUpForm>
         <S.ImageLogoElice src={imgLogoElice} alt={TEXT_SIGNUP_IMAGE_LOGO_ELICE_ALTERNATIVE} />
         <S.DivWrapperInput>
-          <Input ref={refUserId} type="text" placeholder="ID" onPressEnter={handleClickBtnSignUp} />
+          <Input ref={refUserId} type="text" placeholder={TEXT_SIGNUP_INPUT_USER_ID_PLACEHOLDER} />
           <Input
             ref={refUserPassword}
             type="password"
             placeholder={TEXT_SIGNUP_INPUT_PASSWORD_PLACEHOLDER}
-            onPressEnter={handleClickBtnSignUp}
           />
         </S.DivWrapperInput>
       </S.DivContainerSignUpForm>
@@ -60,6 +79,8 @@ export default function SignUp() {
       <S.ButtonGoToSignIn onClick={handleClickBtnGoToSignIn}>
         {TEXT_SIGNUP_BUTTON_GO_TO_SIGNIN}
       </S.ButtonGoToSignIn>
+      <Modal ref={refModalSuccess} onConfirm={handleSuccessToSignUp} />
+      <Modal ref={refModalError} />
     </S.DivContainer>
   );
 }

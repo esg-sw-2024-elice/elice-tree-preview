@@ -10,6 +10,7 @@ import {
   TEXT_TODOS_TITLE_PARAGRAPH,
   TEXT_TODOS_DIV_TOTAL,
 } from '@/constants';
+import { validateIsEmpty } from '@/utils';
 
 export default function Todos() {
   const { isAuthenticated, userId } = useAuth();
@@ -30,7 +31,7 @@ export default function Todos() {
   }, [todos]);
 
   const summaryFooter =
-    isAuthenticated && Boolean(userId?.trim().length) ? (
+    isAuthenticated && validateIsEmpty(userId) ? (
       Boolean(lengthTodos) ? (
         <>{TEXT_TODOS_FOOTER_SUMMARY(userId, Number(totalTree))}</>
       ) : (
