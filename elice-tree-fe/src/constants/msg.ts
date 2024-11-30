@@ -13,3 +13,6 @@ export const MSG_ERROR_FAIL_TO_SIGNUP = '회원가입에 실패했습니다...';
 export const MSG_ERROR_VALIDATION_USER_ID = '아이디를 입력해주세요...';
 
 export const MSG_ERROR_VALIDATION_USER_PASSWORD = '비밀번호를 입력해주세요...';
+
+export const MSG_ERROR_VALIDATION_USER_PASSWORD_RULE =
+  '비밀번호는 영문, 숫자, 특수문자 조합으로 8자리 이상 15자리 이하를 만족해야 합니다...';

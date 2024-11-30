@@ -29,6 +29,8 @@ Elice Tree 는 단순히 정보를 제공하는 것을 넘어, 모든 사용자�
 
 export const TEXT_SIGNIN_IMAGE_LOGO_ELICE_ALTERNATIVE = 'The logo image of elice';
 
+export const TEXT_SIGNIN_INPUT_USER_ID_PLACEHOLDER = 'ID';
+
 export const TEXT_SIGNIN_INPUT_PASSWORD_PLACEHOLDER = '****';
 
 export const TEXT_SIGNIN_HEADING1_TITLE = `\
@@ -48,6 +50,8 @@ export const TEXT_SIGNIN_BUTTON_GO_TO_SIGNUP = '아직 회원이 아니신가요
 export const TEXT_SIGNIN_BUTTON_GO_TO_LANDING = '서비스 둘러보기';
 
 export const TEXT_SIGNUP_IMAGE_LOGO_ELICE_ALTERNATIVE = 'The logo image of elice';
+
+export const TEXT_SIGNUP_INPUT_USER_ID_PLACEHOLDER = 'ID';
 
 export const TEXT_SIGNUP_INPUT_PASSWORD_PLACEHOLDER = '****';
 
@@ -83,3 +87,5 @@ export const TEXT_ADD_TODO_INPUT_PLACEHOLDER = '나무에 새길 할 일을 입�
 export const TEXT_ADD_TODO_BUTTON_ADD = '나무 심기';
 
 export const TEXT_TODO_BUTTON_DELETE = '삭제';
+
+export const TEXT_MODAL_BUTTON_CONFIRM = '확인';

@@ -15,29 +15,44 @@ import {
   TEXT_SIGNIN_HEADING1_TITLE,
   TEXT_SIGNIN_IMAGE_LOGO_ELICE_ALTERNATIVE,
   TEXT_SIGNIN_INPUT_PASSWORD_PLACEHOLDER,
+  TEXT_SIGNIN_INPUT_USER_ID_PLACEHOLDER,
+  MSG_ERROR_FAIL_TO_SIGNIN,
 } from '@/constants';
 import imgLogoElice from '@/assets/images/logo-elice.png';
+import Modal, { TActionsModal, TDialog } from '@/components/shared/Modal';
+import { validateIsEmpty } from '@/utils';
 
 export default function SignIn() {
+  const refModalSuccess = useRef<TActionsModal>(null);
+  const refModalError = useRef<TActionsModal>(null);
   const refUserId = useRef<HTMLInputElement>(null);
   const refUserPassword = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const { signIn } = useAuth();
+  function handleShowModalSuccess(title: string, msg: string, type?: TDialog) {
+    refModalSuccess.current?.show(title, msg, type);
+  }
+  function handleShowModalError(title: string, msg: string, type?: TDialog) {
+    refModalError.current?.show(title, msg, type);
+  }
   const handleClickBtnSignIn = () => {
     const enteredUserId = refUserId.current?.value;
     const enteredUserPassword = refUserPassword.current?.value;
-    if (!enteredUserId || enteredUserId.trim() === '') {
-      alert(MSG_ERROR_VALIDATION_USER_ID);
+    if (!validateIsEmpty(enteredUserId)) {
+      handleShowModalError('Error', MSG_ERROR_VALIDATION_USER_ID, 'error');
       return;
     }
-    if (!enteredUserPassword || enteredUserPassword.trim() === '') {
-      alert(MSG_ERROR_VALIDATION_USER_PASSWORD);
+    if (!validateIsEmpty(enteredUserPassword)) {
+      handleShowModalError('Error', MSG_ERROR_VALIDATION_USER_PASSWORD, 'error');
       return;
     }
-    if (!signIn(enteredUserId, enteredUserPassword)) {
+    if (!signIn(enteredUserId!, enteredUserPassword!)) {
+      handleShowModalError('Error', MSG_ERROR_FAIL_TO_SIGNIN, 'error');
       return;
     }
-    alert(MSG_SUCCESS_TO_SIGNIN(enteredUserId));
+    handleShowModalSuccess('Success', MSG_SUCCESS_TO_SIGNIN(enteredUserId!));
+  };
+  const handleSuccessToSignIn = async () => {
     navigate(KEYS_ROUTE.LANDING());
   };
   const handleClickBtnGoToSignUp = () => {
@@ -51,12 +66,11 @@ export default function SignIn() {
       <S.DivContainerSignInForm>
         <S.ImageLogoElice src={imgLogoElice} alt={TEXT_SIGNIN_IMAGE_LOGO_ELICE_ALTERNATIVE} />
         <S.DivWrapperInput>
-          <Input ref={refUserId} type="text" placeholder="ID" onPressEnter={handleClickBtnSignIn} />
+          <Input ref={refUserId} type="text" placeholder={TEXT_SIGNIN_INPUT_USER_ID_PLACEHOLDER} />
           <Input
             ref={refUserPassword}
             type="password"
             placeholder={TEXT_SIGNIN_INPUT_PASSWORD_PLACEHOLDER}
-            onPressEnter={handleClickBtnSignIn}
           />
         </S.DivWrapperInput>
       </S.DivContainerSignInForm>
@@ -69,6 +83,8 @@ export default function SignIn() {
       <S.ButtonGoToLanding onClick={handleClickBtnGoToLanding}>
         {TEXT_SIGNIN_BUTTON_GO_TO_LANDING}
       </S.ButtonGoToLanding>
+      <Modal ref={refModalSuccess} onConfirm={handleSuccessToSignIn} />
+      <Modal ref={refModalError} />
     </S.DivContainer>
   );
 }
