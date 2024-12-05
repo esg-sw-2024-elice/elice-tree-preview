@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-cd elice-tree-fe
-yarn lint-staged
